@@ -1,6 +1,6 @@
 package models.drivers
 
-import com.example.inazaandroidsdk.models.drivers.Driver
+import com.inaza.androidsdk.models.drivers.Driver
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 
 class DriverModelTest {
     @Test
-    fun testDriverModelInitWithMap(){
+    fun testDriverModelInitWithMap() {
         // generate uuid
         val driverMap = mapOf(
             "id" to "234325325fsesfsegsg32r32g3g23",
@@ -18,7 +18,8 @@ class DriverModelTest {
             "email" to "john.doe@gmail.com",
             "dob" to LocalDate.parse("1990-01-01"),
             "lang" to "en",
-            "drivingStartDate" to LocalDate.parse("2022-01-01"
+            "drivingStartDate" to LocalDate.parse(
+                "2022-01-01"
             )
         )
 
@@ -27,7 +28,10 @@ class DriverModelTest {
                 driverMap["firstName"]?.let { it1 ->
                     driverMap["email"]?.let { it2 ->
                         driverMap["id"]?.let { it3 ->
-                            Driver(_id = it3 as String, _firstName = it1 as String, _lastName = it as String,
+                            Driver(
+                                _id = it3 as String,
+                                _firstName = it1 as String,
+                                _lastName = it as String,
                                 _email = it2 as String,
                                 _dob = driverMap["dob"] as LocalDate?,
                                 _lang = driverMap["lang"] as String?,
@@ -41,7 +45,7 @@ class DriverModelTest {
             println("hi")
 
             assert(false)
-        } else{
+        } else {
             assert(driver.id == driverMap["id"])
             assert(driver.firstName == driverMap["firstName"])
             assert(driver.lastName == driverMap["lastName"])
@@ -52,8 +56,9 @@ class DriverModelTest {
         }
 
     }
+
     @Test
-    fun testDriverModelFromJson(){
+    fun testDriverModelFromJson() {
         val json = """{"id": 4392-6863486346-346346,
         "firstName": "John",
         "lastName": "Doe",
@@ -76,9 +81,15 @@ class DriverModelTest {
     }
 
     @Test
-    suspend fun testDriverLocalUpdate(){
-        val d = Driver(_email = "test@test.com", _id = "fesgeg3232t3t53w5", _firstName = "John", _lastName = "Doe")
-        val fields: MutableMap<String, Any?> = mutableMapOf("firstName" to "Tom", "lastName" to "Bombadill")
+    suspend fun testDriverLocalUpdate() {
+        val d = Driver(
+            _email = "test@test.com",
+            _id = "fesgeg3232t3t53w5",
+            _firstName = "John",
+            _lastName = "Doe"
+        )
+        val fields: MutableMap<String, Any?> =
+            mutableMapOf("firstName" to "Tom", "lastName" to "Bombadill")
         d.update(false, fields)
 
         assert(d.firstName == fields["firstName"])

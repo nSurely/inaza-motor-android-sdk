@@ -1,13 +1,13 @@
+import com.inaza.androidsdk.models.policy.PolicyOrgConfig
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import models.policy.PolicyOrgConfig
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class TestPolicyOrgConfig{
-@Test
-fun testPolicyOrgConfigCreate() {
-    val json = """{
+class TestPolicyOrgConfig {
+    @Test
+    fun testPolicyOrgConfigCreate() {
+        val json = """{
     "group": "d",
     "settings": "custom",
     "cover": [
@@ -114,12 +114,12 @@ fun testPolicyOrgConfigCreate() {
     }
 }"""
 
-    val policyOrgConfig = Json.decodeFromString<PolicyOrgConfig>(json)
+        val policyOrgConfig = Json.decodeFromString<PolicyOrgConfig>(json)
     }
 
 
     @Test
-    fun invalidCurrencyOrgPolicyCreate(){
+    fun invalidCurrencyOrgPolicyCreate() {
         val json = """{
     "group": "d",
     "settings": "custom",

@@ -1,12 +1,13 @@
-import com.example.inazaandroidsdk.models.vehicles.DriverVehicle
-import com.example.inazaandroidsdk.models.vehicles.Vehicle
-import com.example.inazaandroidsdk.models.vehicles.VehicleType
+import com.inaza.androidsdk.models.vehicles.DriverVehicle
+import com.inaza.androidsdk.models.vehicles.Vehicle
+import com.inaza.androidsdk.models.vehicles.VehicleType
 import org.junit.jupiter.api.Test
 
 @Test
 suspend fun testDriverVehicleLocalUpdate() {
     val drv = DriverVehicle()
-    val fields: MutableMap<String, Any?> = mutableMapOf("isOwner" to true, "displayName" to "Unit Test")
+    val fields: MutableMap<String, Any?> =
+        mutableMapOf("isOwner" to true, "displayName" to "Unit Test")
     val unchanged = drv.expiresAt
     drv.update(false, fields)
 

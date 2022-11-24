@@ -1,9 +1,9 @@
 package models.policy.tests
 
+import com.inaza.androidsdk.models.policy.Policy
+import com.inaza.androidsdk.models.policy.enums.PolicyCoverType
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import models.policy.Policy
-import models.policy.enums.PolicyCoverType
 import org.junit.jupiter.api.Test
 import java.time.OffsetDateTime
 
@@ -355,6 +355,7 @@ class TestCreate {
         val pol = Json.decodeFromString<Policy>(json)
 
     }
+
     @Test
     fun testDriverPolicy() {
         val json = """{
@@ -511,7 +512,7 @@ class TestCreate {
     }
 
     @Test
-    fun testFullPolicy(){
+    fun testFullPolicy() {
         val json = """{
     "id": "DRV-123",
     "createdAt": "2022-08-03T08:30:17.197767+00:00",

@@ -1,10 +1,11 @@
-import models.policy.Policy
+import com.inaza.androidsdk.models.policy.Policy
 import org.junit.jupiter.api.Test
 
 @Test
 suspend fun testPolicyLocalUpdate() {
     val pol = Policy()
-    val fields: MutableMap<String, Any?> = mutableMapOf("maxPassengers" to 15, "sumInsured" to 25.02)
+    val fields: MutableMap<String, Any?> =
+        mutableMapOf("maxPassengers" to 15, "sumInsured" to 25.02)
     val unchanged = pol.canRenew
     pol.update(false, fields)
 

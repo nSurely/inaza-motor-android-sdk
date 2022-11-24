@@ -1,14 +1,14 @@
 package models.policy.tests
 
+import com.inaza.androidsdk.models.policy.PolicyOrgConfig
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import models.policy.PolicyOrgConfig
 import org.junit.jupiter.api.Test
 
 class OrgPolicyConfigTest {
 
     @Test
-    fun policyOrgConfigCreate(){
+    fun policyOrgConfigCreate() {
         val json = """{
     "group": "d",
     "settings": "custom",
