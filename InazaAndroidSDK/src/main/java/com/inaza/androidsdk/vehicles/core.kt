@@ -96,7 +96,7 @@ class Vehicles(var api: ApiHandler) {
     }
 
     suspend fun listVehicleTypes(
-        make: Search? = null,
+        brand: Search? = null,
         model: Search? = null,
         year: Int? = null,
         externalId: Search? = null,
@@ -104,8 +104,8 @@ class Vehicles(var api: ApiHandler) {
         maxRecords: Int? = null
     ): Flow<VehicleType> = flow{
         var params = mutableMapOf<String, String?>()
-        if (make != null) {
-            params["make"] = make.toString()
+        if (brand != null) {
+            params["brand"] = brand.toString()
         }
         if (model != null) {
             params["model"] = model.toString()
