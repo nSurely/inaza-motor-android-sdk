@@ -144,13 +144,13 @@ class Motor(
 
     }
 
-    suspend fun listVehicleTypes(make: Search? = null,
+    suspend fun listVehicleTypes(brand: Search? = null,
                                          model: Search? = null,
                                          year: Int? = null,
                                          externalId: Search? = null,
                                          isActive: Boolean = true,
                                          maxRecords: Int? = null): Flow<VehicleType> = flow{
-        vehicles.listVehicleTypes(make, model, year, externalId, isActive, maxRecords).collect{ vehicleType ->
+        vehicles.listVehicleTypes(brand, model, year, externalId, isActive, maxRecords).collect{ vehicleType ->
             emit(vehicleType)
         }
     }
